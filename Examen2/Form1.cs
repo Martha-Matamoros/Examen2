@@ -43,8 +43,9 @@ namespace Examen2
                 return;
             }
 
-            Menu menu = new Menu();
+            FrmMenu menu = new FrmMenu();
             menu.Show();
+            this.Hide();
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

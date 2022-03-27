@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Examen2
 {
-    public partial class Menu : Form
+    public partial class FrmMenu : Form
     {
-        public Menu()
+        public FrmMenu()
         {
             InitializeComponent();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            ProductoFrm frm = new ProductoFrm();
+            frm.Show();
         }
     }
 }

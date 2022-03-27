@@ -29,6 +29,7 @@ namespace Examen2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,16 +38,18 @@ namespace Examen2
             this.descripcionTxt = new System.Windows.Forms.TextBox();
             this.precioTxt = new System.Windows.Forms.TextBox();
             this.existenciaTxt = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ImagenPictureBox = new System.Windows.Forms.PictureBox();
             this.siguienteBtn = new System.Windows.Forms.Button();
             this.nuevoBtn = new System.Windows.Forms.Button();
             this.modificarBtn = new System.Windows.Forms.Button();
             this.guardarBtn = new System.Windows.Forms.Button();
             this.eliminarBtn = new System.Windows.Forms.Button();
             this.salirBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ProductosDataGridView = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -92,49 +95,61 @@ namespace Examen2
             // 
             // codigoTxt
             // 
+            this.codigoTxt.Enabled = false;
             this.codigoTxt.Location = new System.Drawing.Point(171, 16);
             this.codigoTxt.Name = "codigoTxt";
             this.codigoTxt.Size = new System.Drawing.Size(259, 26);
             this.codigoTxt.TabIndex = 4;
+            this.codigoTxt.TextChanged += new System.EventHandler(this.codigoTxt_TextChanged);
             // 
             // descripcionTxt
             // 
+            this.descripcionTxt.Enabled = false;
             this.descripcionTxt.Location = new System.Drawing.Point(171, 57);
             this.descripcionTxt.Name = "descripcionTxt";
             this.descripcionTxt.Size = new System.Drawing.Size(259, 26);
             this.descripcionTxt.TabIndex = 5;
+            this.descripcionTxt.TextChanged += new System.EventHandler(this.descripcionTxt_TextChanged);
             // 
             // precioTxt
             // 
+            this.precioTxt.Enabled = false;
             this.precioTxt.Location = new System.Drawing.Point(171, 98);
             this.precioTxt.Name = "precioTxt";
             this.precioTxt.Size = new System.Drawing.Size(259, 26);
             this.precioTxt.TabIndex = 6;
+            this.precioTxt.TextChanged += new System.EventHandler(this.precioTxt_TextChanged);
             // 
             // existenciaTxt
             // 
+            this.existenciaTxt.Enabled = false;
             this.existenciaTxt.Location = new System.Drawing.Point(171, 140);
             this.existenciaTxt.Name = "existenciaTxt";
             this.existenciaTxt.Size = new System.Drawing.Size(259, 26);
             this.existenciaTxt.TabIndex = 7;
+            this.existenciaTxt.TextChanged += new System.EventHandler(this.existenciaTxt_TextChanged);
             // 
-            // pictureBox1
+            // ImagenPictureBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox1.Location = new System.Drawing.Point(455, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(258, 154);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.ImagenPictureBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ImagenPictureBox.Enabled = false;
+            this.ImagenPictureBox.Location = new System.Drawing.Point(455, 12);
+            this.ImagenPictureBox.Name = "ImagenPictureBox";
+            this.ImagenPictureBox.Size = new System.Drawing.Size(258, 154);
+            this.ImagenPictureBox.TabIndex = 8;
+            this.ImagenPictureBox.TabStop = false;
+            this.ImagenPictureBox.Click += new System.EventHandler(this.ImagenPictureBox_Click);
             // 
             // siguienteBtn
             // 
+            this.siguienteBtn.Enabled = false;
             this.siguienteBtn.Location = new System.Drawing.Point(668, 172);
             this.siguienteBtn.Name = "siguienteBtn";
             this.siguienteBtn.Size = new System.Drawing.Size(45, 35);
             this.siguienteBtn.TabIndex = 9;
             this.siguienteBtn.Text = "...";
             this.siguienteBtn.UseVisualStyleBackColor = true;
+            this.siguienteBtn.Click += new System.EventHandler(this.siguienteBtn_Click);
             // 
             // nuevoBtn
             // 
@@ -144,6 +159,7 @@ namespace Examen2
             this.nuevoBtn.TabIndex = 10;
             this.nuevoBtn.Text = "Nuevo";
             this.nuevoBtn.UseVisualStyleBackColor = true;
+            this.nuevoBtn.Click += new System.EventHandler(this.nuevoBtn_Click);
             // 
             // modificarBtn
             // 
@@ -153,15 +169,18 @@ namespace Examen2
             this.modificarBtn.TabIndex = 11;
             this.modificarBtn.Text = "Modificar";
             this.modificarBtn.UseVisualStyleBackColor = true;
+            this.modificarBtn.Click += new System.EventHandler(this.modificarBtn_Click);
             // 
             // guardarBtn
             // 
+            this.guardarBtn.Enabled = false;
             this.guardarBtn.Location = new System.Drawing.Point(287, 199);
             this.guardarBtn.Name = "guardarBtn";
             this.guardarBtn.Size = new System.Drawing.Size(92, 35);
             this.guardarBtn.TabIndex = 12;
             this.guardarBtn.Text = "Guardar";
             this.guardarBtn.UseVisualStyleBackColor = true;
+            this.guardarBtn.Click += new System.EventHandler(this.guardarBtn_Click);
             // 
             // eliminarBtn
             // 
@@ -171,37 +190,44 @@ namespace Examen2
             this.eliminarBtn.TabIndex = 13;
             this.eliminarBtn.Text = "Eliminar";
             this.eliminarBtn.UseVisualStyleBackColor = true;
+            this.eliminarBtn.Click += new System.EventHandler(this.eliminarBtn_Click);
             // 
             // salirBtn
             // 
+            this.salirBtn.Enabled = false;
             this.salirBtn.Location = new System.Drawing.Point(513, 199);
             this.salirBtn.Name = "salirBtn";
             this.salirBtn.Size = new System.Drawing.Size(92, 35);
             this.salirBtn.TabIndex = 14;
             this.salirBtn.Text = "Salir";
             this.salirBtn.UseVisualStyleBackColor = true;
+            this.salirBtn.Click += new System.EventHandler(this.salirBtn_Click);
             // 
-            // dataGridView1
+            // ProductosDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 240);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(715, 175);
-            this.dataGridView1.TabIndex = 15;
+            this.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductosDataGridView.Location = new System.Drawing.Point(12, 240);
+            this.ProductosDataGridView.Name = "ProductosDataGridView";
+            this.ProductosDataGridView.Size = new System.Drawing.Size(715, 175);
+            this.ProductosDataGridView.TabIndex = 15;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // ProductoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(739, 431);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ProductosDataGridView);
             this.Controls.Add(this.salirBtn);
             this.Controls.Add(this.eliminarBtn);
             this.Controls.Add(this.guardarBtn);
             this.Controls.Add(this.modificarBtn);
             this.Controls.Add(this.nuevoBtn);
             this.Controls.Add(this.siguienteBtn);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ImagenPictureBox);
             this.Controls.Add(this.existenciaTxt);
             this.Controls.Add(this.precioTxt);
             this.Controls.Add(this.descripcionTxt);
@@ -214,8 +240,10 @@ namespace Examen2
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ProductoFrm";
             this.Text = "ProductoFrm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ProductoFrm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ImagenPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,13 +259,14 @@ namespace Examen2
         private System.Windows.Forms.TextBox descripcionTxt;
         private System.Windows.Forms.TextBox precioTxt;
         private System.Windows.Forms.TextBox existenciaTxt;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox ImagenPictureBox;
         private System.Windows.Forms.Button siguienteBtn;
         private System.Windows.Forms.Button nuevoBtn;
         private System.Windows.Forms.Button modificarBtn;
         private System.Windows.Forms.Button guardarBtn;
         private System.Windows.Forms.Button eliminarBtn;
         private System.Windows.Forms.Button salirBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ProductosDataGridView;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
